@@ -15,6 +15,10 @@ app.get("/velocidad", (req, res) => {
   res.json({ nomnre: "kenia ", apellido: "cortez" });
 });
 
+app.get("/Tiempo", (req, res) => {
+  res.json({ Hora: "2:00pm", ciudad: "gomez palacio" });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
