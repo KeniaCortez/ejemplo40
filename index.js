@@ -31,7 +31,7 @@ app.post("/create-data-table", async (req, res) => {
     }
   } catch (error) {
     console.error("❌ Error:", error.message);
-    res.status(500).json({ error: "Error al procesar la solicitud" });
+    res.status(500).json({ error: "Error para procesar la solicitud" });
   }
 });
 
