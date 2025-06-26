@@ -26,7 +26,7 @@ app.post("/create-table", async (req, res) => {
         );
       `);
 
-      return res.status(201).json({ message: "✅ Tabla creada exitosamente" });
+      return res.status(201).json({ message: "✅ Tabla creada  exitosamente" });
     } else {
       return res.status(200).json({ message: "ℹ La tabla ya existe" });
     }
