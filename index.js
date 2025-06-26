@@ -21,6 +21,7 @@ app.post("/create-data-table", async (req, res) => {
           id SERIAL PRIMARY KEY,
           nombre TEXT NOT NULL,
           matricula TEXT NOT NULL,
+          value TEXT NOT NULL,
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
       `);
@@ -46,8 +47,8 @@ app.post("/savedata", async (req, res) => {
 
   try {
     const result = await pool.query(
-      "INSERT INTO data (nombre, matricula) VALUES ($1, $2) RETURNING *;",
-      [nombre, matricula]
+      "INSERT INTO data (nombre, matricula,value) VALUES ($1, $2) RETURNING *;",
+      [nombre, matricula, value]
     );
 
     return res.status(201).json({
