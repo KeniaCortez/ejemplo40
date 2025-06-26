@@ -40,16 +40,14 @@ app.post("/savedata", async (req, res) => {
   const { nombre, matricula, value } = req.body;
 
   if (!nombre || !matricula || !value) {
-    return res
-      .status(400)
-      .json({
-        error: "Los campos 'nombre' y 'matricula' 'value' son requeridos",
-      });
+    return res.status(400).json({
+      error: "Los campos 'nombre' 'matricula' y 'value' son requeridos",
+    });
   }
 
   try {
     const result = await pool.query(
-      "INSERT INTO data (nombre, matricula,value) VALUES ($1, $2 , $3) RETURNING *;",
+      "INSERT INTO data (nombre, matricula, value) VALUES ($1, $2 , $3) RETURNING *;",
       [nombre, matricula, value]
     );
 
