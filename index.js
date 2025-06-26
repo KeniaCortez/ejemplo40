@@ -39,6 +39,8 @@ app.post("/create-data-table", async (req, res) => {
 app.post("/savedata", async (req, res) => {
   const { nombre, matricula, value } = req.body;
 
+  console.log(nombre, matricula, value);
+
   if (!nombre || !matricula || !value) {
     return res.status(400).json({
       error: "Los campos 'nombre' 'matricula' y 'value' son requeridos",
@@ -52,7 +54,7 @@ app.post("/savedata", async (req, res) => {
     );
 
     return res.status(201).json({
-      message: "✅ Datos guardados exitosamente",
+      message: "✅ Datos guardados  exitosamente",
       data: result.rows[0],
     });
   } catch (err) {
