@@ -75,6 +75,16 @@ app.get("/getdata", async (req, res) => {
   }
 });
 
+app.get("/getdata", async (req, res) => {
+  const tableName = "data";
+  try {
+    const result = await pool.query(`SELECT * FROM ${tableName}`);
+    return res.json(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: "Imposible regresar los datos" });
+  }
+});
+
 app.post("/delete-data-table", async (req, res) => {
   try {
     const tableName = "data";
