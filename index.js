@@ -236,7 +236,6 @@ app.post("/savedata", async (req, res) => {
     return res.status(500).json({ error: "Error al guardar los datos" });
   }
 });
-S
 app.get("/get-data", async (req, res) => {
   const tableName = "data";
 
@@ -244,6 +243,6 @@ app.get("/get-data", async (req, res) => {
     const result = await pool.query(`SELECT * FROM ${tableName}`);
     return res.json(result.rows);
   } catch {
-    return res.status(500).json({ error: "Imposible regresar los datos" });
-  }
+    return res.status(500).json({ error: "Imposible regresar los datos" });
+  }
 });
